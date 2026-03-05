@@ -19,22 +19,39 @@ program
     DisplayUtil.success(result.message);
   });
 
+const MODELS = [
+  'qwen3.5-plus',
+  'qwen3-max-2026-01-23',
+  'qwen3-coder-next',
+  'qwen3-coder-plus',
+  'glm-5',
+  'glm-4.7',
+  'kimi-k2.5',
+  'MiniMax-M2.5',
+];
+
 program
   .command('claude-alibaba')
   .description('Enable or disable Claude Alibaba Settings')
-  .option('--true', 'Enable Claude Alibaba with settings from environment variables')
-  .option('--false', 'Disable Claude Alibaba')
+  .option('-E, --enable', 'Enable Claude Alibaba with settings from environment variables')
+  .option('-D, --disable', 'Disable Claude Alibaba')
+  .option('-m, --model <model>', `Model to use (choices: ${MODELS.join(', ')})`, 'MiniMax-M2.5')
   .action((options) => {
     const useCase = new ClaudeAlibabaUseCase();
 
-    if (options.true) {
-      const result = useCase.execute(true);
+    if (options.enable) {
+      const model = options.model;
+      if (!MODELS.includes(model)) {
+        DisplayUtil.error(`Modelo inválido: ${model}. Escolha um dos: ${MODELS.join(', ')}`);
+        return;
+      }
+      const result = useCase.execute(true, model);
       if (result.success) {
         DisplayUtil.success(result.message);
       } else {
         DisplayUtil.error(result.message);
       }
-    } else if (options.false) {
+    } else if (options.disable) {
       const result = useCase.execute(false);
       if (result.success) {
         DisplayUtil.success(result.message);
@@ -42,7 +59,7 @@ program
         DisplayUtil.error(result.message);
       }
     } else {
-      DisplayUtil.warning('Por favor, use --true ou --false');
+      DisplayUtil.warning('Por favor, use --enable (-E) ou --disable (-D)');
     }
   });
 

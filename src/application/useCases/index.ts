@@ -8,7 +8,7 @@ export class ClaudeAlibabaUseCase {
     this.settingsRepository = new SettingsRepository();
   }
 
-  execute(enabled: boolean): CommandResult {
+  execute(enabled: boolean, model: string = 'MiniMax-M2.5'): CommandResult {
     try {
       if (enabled) {
         const token = this.settingsRepository.getAuthToken();
@@ -24,7 +24,7 @@ export class ClaudeAlibabaUseCase {
           env: {
             ANTHROPIC_AUTH_TOKEN: token,
             ANTHROPIC_BASE_URL: 'https://coding-intl.dashscope.aliyuncs.com/apps/anthropic',
-            ANTHROPIC_MODEL: 'MiniMax-M2.5',
+            ANTHROPIC_MODEL: model,
           },
         });
 
