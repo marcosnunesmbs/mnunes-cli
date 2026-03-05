@@ -29,10 +29,18 @@ program
 
     if (options.true) {
       const result = useCase.execute(true);
-      DisplayUtil.success(result.message);
+      if (result.success) {
+        DisplayUtil.success(result.message);
+      } else {
+        DisplayUtil.error(result.message);
+      }
     } else if (options.false) {
       const result = useCase.execute(false);
-      DisplayUtil.error(result.message);
+      if (result.success) {
+        DisplayUtil.success(result.message);
+      } else {
+        DisplayUtil.error(result.message);
+      }
     } else {
       DisplayUtil.warning('Por favor, use --true ou --false');
     }
