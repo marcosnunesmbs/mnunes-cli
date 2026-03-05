@@ -21,8 +21,8 @@ program
 
 program
   .command('claude-alibaba')
-  .description('Enable or disable Claude Alibaba')
-  .option('--true', 'Enable Claude Alibaba')
+  .description('Enable or disable Claude Alibaba Settings')
+  .option('--true', 'Enable Claude Alibaba with settings from environment variables')
   .option('--false', 'Disable Claude Alibaba')
   .action((options) => {
     const useCase = new ClaudeAlibabaUseCase();
