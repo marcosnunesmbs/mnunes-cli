@@ -16,13 +16,13 @@ export class ClaudeAlibabaUseCase {
         if (!token) {
           return {
             success: false,
-            message: 'ANTHROPIC_AUTH_TOKEN não encontrado nas variáveis de ambiente',
+            message: 'MN_ANTHROPIC_TOKEN não encontrado nas variáveis de ambiente',
           };
         }
 
         this.settingsRepository.saveSettings({
           env: {
-            ANTHROPIC_AUTH_TOKEN: token,
+            MN_ANTHROPIC_TOKEN: token,
             ANTHROPIC_BASE_URL: 'https://coding-intl.dashscope.aliyuncs.com/apps/anthropic',
             ANTHROPIC_MODEL: model,
           },

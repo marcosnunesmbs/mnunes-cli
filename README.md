@@ -35,7 +35,7 @@ mnunes claude-alibaba --false
 Crie um arquivo `.env` na raiz do projeto com o token da Anthropic:
 
 ```env
-ANTHROPIC_AUTH_TOKEN=sk-sp-...
+MN_ANTHROPIC_TOKEN=sk-sp-...
 ```
 
 ## Desenvolvimento

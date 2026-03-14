@@ -30,9 +30,9 @@ src/
 
 ## Key Details
 
-- O arquivo `.env` na raiz é carregado automaticamente para ler `ANTHROPIC_AUTH_TOKEN`
+- O arquivo `.env` na raiz é carregado automaticamente para ler `MN_ANTHROPIC_TOKEN`
 - O comando `claude-alibaba -E` salva configuração em `~/.claude/settings.json` com:
-  - `ANTHROPIC_AUTH_TOKEN` (do .env)
+  - `MN_ANTHROPIC_TOKEN` (do .env)
   - `ANTHROPIC_BASE_URL`: https://coding-intl.dashscope.aliyuncs.com/apps/anthropic
   - `ANTHROPIC_MODEL`: modelo selecionado (padrão: MiniMax-M2.5)
 - O comando `claude-alibaba -D` limpa o settings.json (grava `{}`)

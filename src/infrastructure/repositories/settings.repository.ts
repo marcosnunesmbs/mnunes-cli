@@ -7,7 +7,7 @@ const ENV_FILE = '.env';
 
 export interface ClaudeSettings {
   env?: {
-    ANTHROPIC_AUTH_TOKEN?: string;
+    MN_ANTHROPIC_TOKEN?: string;
     ANTHROPIC_BASE_URL?: string;
     ANTHROPIC_MODEL?: string;
   };
@@ -84,6 +84,6 @@ export class SettingsRepository {
   }
 
   getAuthToken(): string | undefined {
-    return process.env.ANTHROPIC_AUTH_TOKEN;
+    return process.env.MN_ANTHROPIC_TOKEN;
   }
 }
