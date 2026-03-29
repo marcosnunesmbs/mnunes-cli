@@ -7,7 +7,7 @@ const ENV_FILE = '.env';
 
 export interface ClaudeSettings {
   env?: {
-    MN_ANTHROPIC_TOKEN?: string;
+    ANTHROPIC_AUTH_TOKEN?: string;
     ANTHROPIC_BASE_URL?: string;
     ANTHROPIC_MODEL?: string;
   };

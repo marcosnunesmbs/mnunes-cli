@@ -22,7 +22,7 @@ export class ClaudeAlibabaUseCase {
 
         this.settingsRepository.saveSettings({
           env: {
-            MN_ANTHROPIC_TOKEN: token,
+            ANTHROPIC_AUTH_TOKEN: token,
             ANTHROPIC_BASE_URL: 'https://coding-intl.dashscope.aliyuncs.com/apps/anthropic',
             ANTHROPIC_MODEL: model,
           },
